@@ -1,0 +1,36 @@
+# Dependencias
+node_modules/
+npm-debug.log*
+
+# Directorios de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Cache de log
+logs
+*.log
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de compilación
+dist/
+build/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Configuración de paquetes y dependencias
+package-lock.json
+yarn.lock
