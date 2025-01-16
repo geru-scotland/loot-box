@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= title %></title>
+  <title><%= textData.TITLE %></title>
   <link rel="stylesheet" href="/stylesheets/index.css" />
 </head>
 <body>
 <div class="container">
-  <h1 class="title">INVENTORY MANAGER</h1>
-  <p class="welcome">Welcome to <%= title %></p>
+  <h1 class="title"><%= textData.HEADER %></h1>
+  <p class="welcome">Welcome to <%= textData.TITLE %></p>
   <div class="menu">
-    <a href="/login" class="button">Login</a>
-    <a href="/register" class="button">Register</a>
+    <a href="/login" class="button"><%= textData.LOGIN %></a>
+    <a href="/register" class="button"><%= textData.REGISTER %></a>
   </div>
 </div>
 </body>
