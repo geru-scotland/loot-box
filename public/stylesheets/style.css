@@ -84,3 +84,157 @@ body {
     border-color: #00cc00;
     box-shadow: 0 0 20px #00ff00, 0 0 10px #004400;
 }
+
+/* Lootbox container */
+.lootbox-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.lootbox {
+    display: inline-block;
+    border: 4px solid #00ff00;
+    padding: 20px;
+    background: #101010;
+    box-shadow: 0 0 15px #00ff00, inset 0 0 10px #004400;
+    border-radius: 15px;
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.lootbox img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+    animation: glow 1.5s infinite ease-in-out;
+}
+
+.lootbox p {
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+    margin-bottom: 10px;
+}
+
+/* Inventory container */
+.inventory-container {
+    margin-top: 30px;
+    text-align: center;
+    padding: 10px;
+    display: inline-block;
+    border: 4px solid #00ff00;
+    background: #101010;
+    box-shadow: 0 0 15px #00ff00, inset 0 0 10px #004400;
+    border-radius: 10px;
+}
+
+.inventory-container h2 {
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+    margin-bottom: 20px;
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas */
+    gap: 15px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.inventory-slot {
+    width: 64px;
+    height: 64px;
+    border: 2px solid #00ff00;
+    background: #101010;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px #004400, 0 0 10px #00ff00;
+    transition: transform 0.2s ease-in-out;
+}
+
+.inventory-slot:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00ff00, inset 0 0 15px #004400;
+}
+
+/* Animaciones */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 15px #00ff00, inset 0 0 10px #004400;
+    }
+    50% {
+        box-shadow: 0 0 20px #00ff00, inset 0 0 15px #006600;
+    }
+}
+
+/* Lootbox container */
+.lootbox-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.lootbox {
+    display: inline-block;
+    border: 4px solid #00ff00;
+    padding: 20px;
+    background: #101010;
+    box-shadow: 0 0 15px #00ff00, inset 0 0 10px #004400;
+    border-radius: 15px;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    cursor: pointer; /* Cambiar cursor al pasar el ratón */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lootbox img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+    animation: glow 1.5s infinite ease-in-out;
+}
+
+/* Hover: dar sensación de estar flotando */
+.lootbox:hover {
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: 0 0 20px #00ff00, 0 0 30px #004400, inset 0 0 15px #006600;
+}
+
+/* Click: animación de apertura */
+.lootbox:active {
+    animation: open-lootbox 0.5s ease-in-out forwards;
+}
+
+/* Efecto de resplandor continuo */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 15px #00ff00, inset 0 0 10px #004400;
+    }
+    50% {
+        box-shadow: 0 0 20px #00ff00, inset 0 0 15px #006600;
+    }
+}
+
+/* Click: animación de apertura */
+.lootbox.clicked {
+    animation: open-lootbox 2s ease-in-out forwards; /* Cambiado a 2s */
+}
+
+/* Efecto especial de apertura */
+@keyframes open-lootbox {
+    0% {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px #00ff00, 0 0 40px #004400, inset 0 0 20px #006600;
+    }
+    50% {
+        transform: scale(0.9) rotate(-5deg);
+        box-shadow: 0 0 50px #00ff00, 0 0 60px #00ff00, inset 0 0 30px #00cc00;
+    }
+    100% {
+        transform: scale(1.5) rotate(0deg);
+        box-shadow: 0 0 80px #00ff00, 0 0 100px #00cc00, inset 0 0 50px #00cc00;
+        opacity: 0; /* Desaparece al final */
+    }
+}

@@ -47,10 +47,10 @@ const registerController = async (req, res) => {
     }
 
     try{
-        const exists = await User.findOne({username: username});
+        const exists = await User.findOne({username: username.toLowerCase()});
 
         if(exists){
-            return res.status(409).render({error: errors.auth.USERNAME_ALREADY_EXISTS})
+            return res.status(409).render("register", {error: errors.auth.USERNAME_ALREADY_EXISTS})
         }
 
         const user = new User({
@@ -70,7 +70,7 @@ const registerController = async (req, res) => {
 
     } catch(e) {
         console.error("Error al crear la cuenta:", e);
-        res.status(500).render("error", { error: { status: 500, message: "INternal server error" } });
+        res.status(500).render("error", { error: { status: 500, message: "Internal server error" } });
     }
 }
 

@@ -8,6 +8,9 @@
 <body>
 <div class="container">
     <h1 class="title">REGISTER</h1>
+    <% if (typeof error !== 'undefined' && error) { %>
+        <p class="error-message"><%= error %></p>
+    <% } %>
     <form action="<%= routes.auth.register %>" method="POST">
         <input type="text" name="username" placeholder="Choose a Username" required />
         <input type="email" name="email" placeholder="Enter Your Email" required />
