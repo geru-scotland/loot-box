@@ -1,20 +1,38 @@
 const express = require('express');
-const mongodb = require("./db/connection")
+const session = require('express-session');
+
+const mongodb = require("./db/connection");
+const MongoStore = require('connect-mongo');
 const path = require('path');
 
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const config = require("./config");
+
 // Rutas
 const indexRoutes = require("./routes/index.route")
 const authRoutes = require("./routes/auth.route")
-const redirects = require("./routes/redirects.route");
 
 // App, session y DB
 const app = express();
 
 mongodb();
+
+// Session
+app.use(session({
+    secret: "supersecureandsecretkey",
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: config.mongoURI,
+      collectionName: config.sessionsCollection
+    }),
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24
+    }
+}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,7 +47,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/", indexRoutes);
 app.use("/auth", authRoutes);
-app.use(redirects);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
