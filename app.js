@@ -14,6 +14,7 @@ const config = require("./config");
 // Rutas
 const indexRoutes = require("./routes/index.route")
 const authRoutes = require("./routes/auth.route")
+const dashboardRoutes = require("./routes/dashboard.route")
 
 // App, session y DB
 const app = express();
@@ -26,8 +27,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-      mongoUrl: config.mongoURI,
-      collectionName: config.sessionsCollection
+        mongoUrl: config.mongoURI,
+        collectionName: config.sessionsCollection,
+        ttl: 60 * 60 * 24
     }),
     cookie: {
         maxAge: 1000 * 60 * 60 * 24
@@ -47,6 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/", indexRoutes);
 app.use("/auth", authRoutes);
+app.use("/dashboard", dashboardRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

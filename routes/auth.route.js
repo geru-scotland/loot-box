@@ -1,13 +1,15 @@
-const express = require("express")
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const { loginController, registerController, createAccountController }  = require("../controllers/auth.controller")
+const { loginController, registerController, createAccountController, logoutController}  = require("../controllers/auth.controller");
+const { requiresAuth, strictNoAuth } = require("../middleware/auth.middleware");
 
 // TODO: Falta middleware check para las rutas
 
-router.get("/login", loginController)
-router.get("/register", registerController)
+router.get("/login", strictNoAuth, loginController);
+router.get("/register", strictNoAuth, registerController);
+router.get("/logout", requiresAuth, logoutController);
 
-router.post("/register", createAccountController)
+router.post("/register", strictNoAuth, createAccountController);
 
 module.exports = router

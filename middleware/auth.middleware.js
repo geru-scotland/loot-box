@@ -1,8 +1,20 @@
 
 
-const isAuthenticated = (req, res, next) => {
+const requiresAuth = (req, res, next) => {
     if(req.session.user){
         return next();
     }
-    res.redirect("/login");
+    return res.redirect("/");
+}
+
+const strictNoAuth = (req, res, next) => {
+    if(req.session.user){
+        return res.redirect("/dashboard")
+    }
+    next();
+}
+
+module.exports = {
+    requiresAuth,
+    strictNoAuth
 }
