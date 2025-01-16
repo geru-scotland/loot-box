@@ -1,12 +1,35 @@
-const routes = require("../routes/routes");
 const User = require("../models/user.model");
+const { errors } = require("../constants/error")
 
-const loginController = (req, res) => {
-    res.status(200).render("login", { routes: routes });
-}
+const loginController = async (req, res) => {
+    console.log("TRYING TO LOGIN")
+    const { username, password } = req.body;
 
-const registerController = (req, res) => {
-    res.status(200).render("register", { routes: routes });
+    try{
+        const user = await User.findOne({username: username.toLowerCase()});
+
+        if(!user){
+            return res.status(409).render("login", {error: errors.auth.USERNAME_NOTFOUND});
+        }
+
+        const passwordOk = await user.checkPassword(password);
+
+        if(!passwordOk){
+
+            return res.status(409).render("login", {error: errors.auth.WRONG_CREDENTIALS});
+        }
+
+        req.session.user = { id: user._id, username: user.username };
+        return res.status(200).render("dashboard");
+
+    } catch (e) {
+
+        const error = {
+            status: 500,
+            message: "An unexpected error occurred. Please try again later.",
+        };
+        return res.status(500).render("login", { error: error });
+    }
 }
 
 const logoutController = (req, res) => {
@@ -15,7 +38,7 @@ const logoutController = (req, res) => {
     return res.redirect("/");
 }
 
-const createAccountController = async (req, res) => {
+const registerController = async (req, res) => {
 
     const { username, password, email } = req.body;
 
@@ -27,15 +50,11 @@ const createAccountController = async (req, res) => {
         const exists = await User.findOne({username: username});
 
         if(exists){
-            const error = {
-                status: 500,
-                message: "Username already exists"
-            }
-            return res.status(409).render({error: error})
+            return res.status(409).render({error: errors.auth.USERNAME_ALREADY_EXISTS})
         }
 
         const user = new User({
-            username: username,
+            username: username.toLowerCase(),
             password: password,
             email: email,
         })
@@ -51,13 +70,12 @@ const createAccountController = async (req, res) => {
 
     } catch(e) {
         console.error("Error al crear la cuenta:", e);
-        res.status(500).render("error", { error: { status: 500, message: "Error interno del servidor" } });
+        res.status(500).render("error", { error: { status: 500, message: "INternal server error" } });
     }
 }
 
 module.exports = {
     loginController,
     registerController,
-    createAccountController,
     logoutController
 }

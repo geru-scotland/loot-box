@@ -65,3 +65,10 @@ input::placeholder {
     font-size: 0.9rem;
 }
 
+.error-message {
+    color: #ff0000;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 0 0 1px #ff5555, 0 0 2px #ff0000;
+}

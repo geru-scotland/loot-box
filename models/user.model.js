@@ -34,11 +34,11 @@ userSchema.pre("save", async function(next) {
     if(!this.isModified("password") || this.password.startsWith('$2b$'))
         return next();
 
-    this.password = bcrypt.hash(this.password, 10);
+    this.password = await bcrypt.hash(this.password, 10);
     next();
 })
 
-userSchema.methods.comparePassword = async function(requestPassword) {
+userSchema.methods.checkPassword = async function(requestPassword) {
     return await bcrypt.compare(requestPassword, this.password);
 }
 

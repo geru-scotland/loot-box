@@ -12,9 +12,10 @@ const logger = require('morgan');
 const config = require("./config");
 
 // Rutas
-const indexRoutes = require("./routes/index.route")
-const authRoutes = require("./routes/auth.route")
-const dashboardRoutes = require("./routes/dashboard.route")
+const routes = require("./routes/routes");
+const indexRoutes = require("./routes/index.route");
+const authRoutes = require("./routes/auth.route");
+const dashboardRoutes = require("./routes/dashboard.route");
 
 // App, session y DB
 const app = express();
@@ -46,6 +47,12 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// mejor así, accedo globalmente a las rutas en templates
+app.use((req, res, next) => {
+    res.locals.routes = routes;
+    next();
+});
 
 app.use("/", indexRoutes);
 app.use("/auth", authRoutes);
