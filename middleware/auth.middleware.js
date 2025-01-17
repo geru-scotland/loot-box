@@ -9,7 +9,6 @@ const requiresAuth = (req, res, next) => {
 
 const requiresAdmin = (req, res, next) => {
     if(req.session.user && req.session.user.role === roles.ADMIN){
-        console.log("ADMIN OK")
         return next();
     }
     //TODO: Mejor que redireccione a página de privilege error.

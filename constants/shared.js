@@ -7,4 +7,9 @@ const roles = {
     ADMIN: 'admin'
 }
 
-module.exports = { shared, roles }
+const extensions = {
+    PNG: ".png",
+    JPEG: ".jpeg"
+}
+
+module.exports = { shared, roles, extensions }

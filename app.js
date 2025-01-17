@@ -11,12 +11,17 @@ const logger = require('morgan');
 
 const config = require("./config");
 
-// Rutas
+// Rutas de navegación, render etc.
 const routes = require("./routes/routes");
 const indexRoutes = require("./routes/index.route");
 const authRoutes = require("./routes/auth.route");
 const dashboardRoutes = require("./routes/dashboard.route");
 const adminRoutes = require("./routes/admin.route");
+
+// Rutas para consumir del API
+// solo resourcers
+const itemAPI = require("./routes/api/item.route");
+const inventoryAPI = require("./routes/api/inventory.route");
 
 // Texts
 const literals = require("./constants/strings")
@@ -49,7 +54,7 @@ app.use(logger('dev'));
 app.use(cookieParser());
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Rutas + literals a locals, para que estén globalmente
@@ -64,6 +69,9 @@ app.use("/", indexRoutes);
 app.use("/auth", authRoutes);
 app.use("/dashboard", dashboardRoutes);
 app.use("/admin", adminRoutes);
+
+app.use("/api", itemAPI);
+app.use("/api", inventoryAPI);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

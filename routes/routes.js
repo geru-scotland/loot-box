@@ -6,6 +6,20 @@ const routes = {
     },
     admin: {
         panel: '/admin/'
+    },
+    api: {
+        items: {
+            add: '/api/items',
+            generate: '/api/items/generate/rng'
+        },
+        inventory: {
+            addItem: '/api/inventory/{id}/items/{itemid}'
+        }
+    },
+    public: {
+        images: {
+            icons: 'public/images/icons'
+        }
     }
 };
 
