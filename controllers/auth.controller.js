@@ -1,8 +1,9 @@
 const User = require("../models/user.model");
+const Inventory = require("../models/inventory.model");
 const { errors } = require("../constants/error")
 
 const loginController = async (req, res) => {
-    console.log("TRYING TO LOGIN")
+    
     const { username, password } = req.body;
 
     try{
@@ -53,10 +54,15 @@ const registerController = async (req, res) => {
             return res.status(409).render("register", {error: errors.auth.USERNAME_ALREADY_EXISTS})
         }
 
+        // TODO: crear nuevo inventario y obtener su _id primero
+        const inventory = new Inventory();
+        await inventory.save();
+        // ahora, crear el nuevo usuario agregando la referencia al inventario
         const user = new User({
             username: username.toLowerCase(),
             password: password,
             email: email,
+            inventory_guid: inventory._id
         })
 
         await user.save();
