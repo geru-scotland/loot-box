@@ -3,7 +3,7 @@ const Inventory = require("../models/inventory.model");
 const { errors } = require("../constants/error")
 
 const loginController = async (req, res) => {
-    
+
     const { username, password } = req.body;
 
     try{

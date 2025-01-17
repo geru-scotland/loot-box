@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title><%= literals.auth.LOGIN_TITLE %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="/stylesheets/forms.css" />
 </head>
 <body>
 <div class="container">
-    <h1 class="title">LOGIN</h1>
+    <h1 class="title"><%= literals.auth.HEADER %></h1>
     <% if (typeof error !== 'undefined' && error) { %>
         <p class="error-message"><%= error %></p>
     <% } %>
     <form action="<%= routes.auth.login %>" method="POST">
-        <input type="text" name="username" placeholder="Enter Username" required />
-        <input type="password" name="password" placeholder="Enter Password" required />
-        <button type="submit">Login</button>
+        <input type="text" name="username" autocomplete="off" placeholder="<%= literals.auth.LOGIN_PLH_UNAME %>" required />
+        <input type="password" name="password" autocomplete="off" placeholder="<%= literals.auth.LOGIN_PLH_PASS %>" required />
+        <button type="submit"><%= literals.auth.BUTTON_LOGIN %></button>
     </form>
-    <p><a href="<%= routes.auth.register %>" class="link">Don't have an account? Register here.</a></p>
+    <p><a href="<%= routes.auth.register %>" class="link"><%= literals.auth.NEW_ACCOUNT %></a></p>
 </div>
 </body>
 </html>

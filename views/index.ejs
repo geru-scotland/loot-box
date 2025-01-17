@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= textData.TITLE %></title>
+  <title><%= literals.homepage.TITLE %></title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
 <div class="container">
-  <h1 class="title"><%= textData.HEADER %></h1>
-  <p class="welcome"><%= textData.DESCRIPTION %></p>
+  <h1 class="title"><%= literals.homepage.HEADER %></h1>
+  <p class="welcome"><%= literals.homepage.DESCRIPTION %></p>
   <div class="menu">
-    <a href="<%= routes.auth.login %>" class="button"><%= textData.LOGIN %></a>
-    <a href="<%= routes.auth.register %>"  class="button"><%= textData.REGISTER %></a>
+    <a href="<%= routes.auth.login %>" class="button"><%= literals.homepage.LOGIN %></a>
+    <a href="<%= routes.auth.register %>"  class="button"><%= literals.homepage.REGISTER %></a>
   </div>
 </div>
 </body>

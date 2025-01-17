@@ -1,7 +1,6 @@
-const { homepage } = require("../constants/strings");
 
 const getHomePage = (req, res) => {
-    return res.render("index", { textData: homepage });
+    return res.render("index");
 }
 
 module.exports = getHomePage;

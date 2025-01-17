@@ -17,6 +17,10 @@ const indexRoutes = require("./routes/index.route");
 const authRoutes = require("./routes/auth.route");
 const dashboardRoutes = require("./routes/dashboard.route");
 
+// Texts
+const literals = require("./constants/strings")
+
+console.log(literals)
 // App, session y DB
 const app = express();
 
@@ -48,9 +52,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// mejor así, accedo globalmente a las rutas en templates
+// Rutas + literals a locals, para que estén globalmente
+// accesibles
 app.use((req, res, next) => {
     res.locals.routes = routes;
+    res.locals.literals = literals;
     next();
 });
 
