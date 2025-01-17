@@ -170,22 +170,23 @@ body {
 
 /* Lootbox container */
 .lootbox-container {
-    margin: 20px 0;
-    text-align: center;
-}
-
-.lootbox {
-    display: inline-block;
-    border: 4px solid #00ff00;
-    padding: 20px;
-    background: #101010;
-    box-shadow: 0 0 15px #00ff00, inset 0 0 10px #004400;
-    border-radius: 15px;
     position: relative;
+    text-align: center;
+    display: inline-block;
     width: 200px;
     height: 200px;
-    cursor: pointer; /* Cambiar cursor al pasar el ratón */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lootbox, .accept-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .lootbox img {
@@ -196,33 +197,117 @@ body {
     animation: glow 1.5s infinite ease-in-out;
 }
 
-/* Hover: dar sensación de estar flotando */
 .lootbox:hover {
     transform: translateY(-10px) scale(1.1);
     box-shadow: 0 0 20px #00ff00, 0 0 30px #004400, inset 0 0 15px #006600;
 }
 
-/* Click: animación de apertura */
 .lootbox:active {
     animation: open-lootbox 0.5s ease-in-out forwards;
 }
 
-/* Efecto de resplandor continuo */
+.lootbox.clicked {
+    animation: open-lootbox 2s ease-in-out forwards;
+}
+
+.accept-button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    color: #101010;
+    background: #00ff00;
+    border: 2px solid #00cc00;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #00ff00, 0 0 5px #004400;
+    cursor: pointer;
+    text-shadow: 0 0 10px #00ff00;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.3s ease;
+    display: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.accept-button:hover {
+    transform: scale(1.3) rotate(-2deg);
+    box-shadow: 0 0 40px #00ff00, 0 0 60px #004400, inset 0 0 30px #00cc00;
+    background: radial-gradient(circle, #00ff00, #006600);
+}
+
+.accept-button::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.accept-button:hover::before {
+    opacity: 1;
+    transform: rotate(45deg) translateX(150%);
+}
+
+.accept-button:hover span {
+    color: #ffffff;
+    text-shadow: 0 0 20px #00ff00, 0 0 30px #006600;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.lootbox {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    will-change: transform, box-shadow;
+}
+
+.lootbox:hover {
+    transform: translateY(-10px) scale(1.2);
+    box-shadow: 0 0 30px #00ff00, 0 0 50px #004400, inset 0 0 20px #006600;
+}
+
+.lootbox img {
+    animation: glow 2s infinite ease-in-out;
+}
+
+.accept-button.show {
+    animation: epicFadeIn 1s ease-in-out forwards;
+    opacity: 1;
+}
+
+.accept-button.hide {
+    animation: fadeOut 1s ease-in-out forwards;
+    opacity: 0;
+}
+
+.lootbox.clicked {
+    animation: open-lootbox 2s ease-in-out forwards;
+}
+
+.lootbox.show {
+    animation: epicFadeIn 2s ease-in-out;
+}
+
 @keyframes glow {
     0%, 100% {
         box-shadow: 0 0 15px #00ff00, inset 0 0 10px #004400;
     }
     50% {
-        box-shadow: 0 0 20px #00ff00, inset 0 0 15px #006600;
+        box-shadow: 0 0 25px #00ff00, inset 0 0 15px #006600;
     }
 }
 
-/* Click: animación de apertura */
-.lootbox.clicked {
-    animation: open-lootbox 2s ease-in-out forwards; /* Cambiado a 2s */
-}
-
-/* Efecto especial de apertura */
 @keyframes open-lootbox {
     0% {
         transform: scale(1.1);
@@ -235,6 +320,46 @@ body {
     100% {
         transform: scale(1.5) rotate(0deg);
         box-shadow: 0 0 80px #00ff00, 0 0 100px #00cc00, inset 0 0 50px #00cc00;
-        opacity: 0; /* Desaparece al final */
+        opacity: 0;
+    }
+}
+
+@keyframes epicFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes open-lootbox {
+    0% {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px #00ff00, 0 0 40px #004400, inset 0 0 20px #006600;
+    }
+    50% {
+        transform: scale(0.9) rotate(-5deg);
+        box-shadow: 0 0 50px #00ff00, 0 0 60px #00ff00, inset 0 0 30px #00cc00;
+    }
+    100% {
+        transform: scale(1.5) rotate(0deg);
+        box-shadow: 0 0 80px #00ff00, 0 0 100px #00cc00, inset 0 0 50px #00cc00;
+        opacity: 0;
     }
 }

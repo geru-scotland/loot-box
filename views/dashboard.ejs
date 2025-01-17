@@ -12,7 +12,10 @@
         <div class="lootbox" id="lootbox">
             <img src="/images/lootbox2.png" alt="Lootbox" />
         </div>
+        <button id="acceptButton" class="accept-button" style="display: none;">Accept!</button>
     </div>
+
+
     <div class="inventory-container">
         <h2>Inventory</h2>
         <div class="inventory-grid">
@@ -27,15 +30,42 @@
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const lootbox = document.getElementById("lootbox");
+        const acceptButton = document.getElementById("acceptButton");
 
+        // Manejo del clic en el lootbox
         lootbox.addEventListener("click", () => {
             lootbox.classList.add("clicked");
 
-            setTimeout(() => {
-                lootbox.classList.remove("clicked");
-            }, 2000);
+            // Cuando la animación de clic termina, oculta el lootbox y muestra el botón
+            lootbox.addEventListener("animationend", function handleLootboxAnimation() {
+                lootbox.style.display = "none"; // Oculta el lootbox
+                acceptButton.style.display = "flex"; // Muestra el botón
+                acceptButton.classList.add("show"); // Añade animación de aparición
+                lootbox.classList.remove("clicked"); // Limpia la clase del lootbox
+                lootbox.removeEventListener("animationend", handleLootboxAnimation); // Limpia el evento
+            });
+        });
+
+        // Manejo del clic en el botón "Accept!"
+        acceptButton.addEventListener("click", () => {
+            acceptButton.classList.add("hide"); // Añade animación de salida
+
+            // Cuando la animación de salida del botón termina
+            acceptButton.addEventListener("animationend", function handleButtonAnimation() {
+                acceptButton.style.display = "none"; // Oculta el botón
+                lootbox.style.display = "block"; // Muestra el lootbox
+                lootbox.classList.add("show"); // Añade animación de entrada
+                acceptButton.classList.remove("hide"); // Limpia la clase del botón
+                acceptButton.removeEventListener("animationend", handleButtonAnimation); // Limpia el evento
+
+                // Limpia la clase "show" del lootbox después de su animación
+                setTimeout(() => {
+                    lootbox.classList.remove("show");
+                }, 2000);
+            });
         });
     });
+
 </script>
 
 </html>
