@@ -1,0 +1,154 @@
+/* admin-form.css */
+.admin-form-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #101010;
+    padding: 20px;
+    border: 4px solid #00ff00;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00ff00, inset 0 0 10px #004400;
+}
+
+.admin-form-container label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #00ff00;
+    display: block;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #004400;
+}
+
+.admin-form-container input,
+.admin-form-container textarea,
+.admin-form-container select {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #00ff00;
+    background: #1a1a1a;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px #00ff00;
+}
+
+.admin-form-container textarea {
+    resize: none;
+}
+
+.admin-form-container select {
+    appearance: none;
+    background: #101010;
+    cursor: pointer;
+}
+
+.admin-form-container select:hover,
+.admin-form-container input:focus,
+.admin-form-container textarea:focus {
+    outline: none;
+    box-shadow: inset 0 0 10px #00ff00;
+}
+
+.admin-form-container .button {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.custom-select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+}
+
+.custom-select-wrapper select {
+    appearance: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #d0d0d0;
+    background: #1a1a1a;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px #00ff00;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-select-wrapper select:hover,
+.custom-select-wrapper select:focus {
+    box-shadow: inset 0 0 10px #00ff00;
+    outline: none;
+}
+
+#itemQuality {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    background: #1a1a1a;
+    color: #d0d0d0;
+    appearance: none;
+    cursor: pointer;
+    box-shadow: inset 0 0 5px #00ff00;
+    transition: color 0.3s ease;
+}
+
+#itemQuality option.select-common {
+    color: #ffffff;
+}
+
+#itemQuality option.select-rare {
+    color: #0070dd;
+}
+
+#itemQuality option.select-epic {
+    color: #a335ee;
+}
+
+#itemQuality option.select-legendary {
+    color: #ff8000;
+}
+
+/* Estilo para el campo de subida de imágenes */
+input[type="file"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    color: #00ff00;
+    background: #1a1a1a;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px #00ff00;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="file"]::file-selector-button {
+    background: #00ff00;
+    color: #101010;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 10px #00ff00;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: #101010;
+    color: #00ff00;
+    box-shadow: 0 0 20px #00ff00;
+}
+
+input[type="file"]:hover {
+    box-shadow: inset 0 0 10px #00ff00;
+}

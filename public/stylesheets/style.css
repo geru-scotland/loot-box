@@ -363,3 +363,38 @@ body {
         opacity: 0;
     }
 }
+
+/* Admin button */
+.admin-button {
+    position: absolute;
+    top: 20px;
+    right: 150px;
+    font-size: 0.9rem;
+    padding: 10px 15px;
+    color: #00ff00;
+    background: transparent;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 0 0 10px #00ff00, inset 0 0 5px #004400;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.admin-button:hover {
+    color: #101010;
+    background: #00ff00;
+    border-color: #00cc00;
+    box-shadow: 0 0 20px #00ff00, 0 0 10px #004400;
+}
+
+.welcome {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #004400;
+}
+.welcome::first-letter{
+    text-transform: capitalize;
+}

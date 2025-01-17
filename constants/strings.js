@@ -13,6 +13,22 @@ const homepage = {
 
 /**
  * ==========================================
+ * Dashboard & Loot Box
+ * ==========================================
+ */
+const dashboard = {
+    TITLE: 'Dashboard',
+    HEADER: 'LOOT BOX!',
+    LOGOUT: 'Logout',
+    ADMIN_PANEL: 'Admin',
+    WELCOME_USER: '{username}, praise RNGesus!',
+    INVENTORY_TITLE: 'Inventory',
+    ACCEPT_BUTTON: 'Accept!',
+};
+
+
+/**
+ * ==========================================
  * Login & Register
  * ==========================================
  */
@@ -39,8 +55,15 @@ const auth = {
  * Admin - add item
  * ==========================================
  */
-const addItem = {
-    TEST: "TEST",
+const admin = {
+    TITLE: 'Admin Panel',
+    HEADER: 'Add New Item',
+    ITEM_NAME_LABEL: 'Item Name',
+    ITEM_TYPE_LABEL: 'Item Type',
+    ITEM_DESCRIPTION_LABEL: 'Description',
+    ITEM_QUALITY_LABEL: 'Quality',
+    SUBMIT_BUTTON: 'Add Item',
 };
 
-module.exports = { homepage, addItem, auth }
+
+module.exports = { homepage, dashboard, admin, auth }

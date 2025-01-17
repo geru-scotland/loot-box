@@ -16,11 +16,11 @@ const routes = require("./routes/routes");
 const indexRoutes = require("./routes/index.route");
 const authRoutes = require("./routes/auth.route");
 const dashboardRoutes = require("./routes/dashboard.route");
+const adminRoutes = require("./routes/admin.route");
 
 // Texts
 const literals = require("./constants/strings")
 
-console.log(literals)
 // App, session y DB
 const app = express();
 
@@ -63,6 +63,7 @@ app.use((req, res, next) => {
 app.use("/", indexRoutes);
 app.use("/auth", authRoutes);
 app.use("/dashboard", dashboardRoutes);
+app.use("/admin", adminRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

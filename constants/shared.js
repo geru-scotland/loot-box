@@ -2,4 +2,9 @@ const shared = {
     INVENTORY_CAPACITY: 20
 }
 
-module.exports = shared
+const roles = {
+    USER: 'user',
+    ADMIN: 'admin'
+}
+
+module.exports = { shared, roles }

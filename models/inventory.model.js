@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const shared = require("../constants/shared")
+const { shared } = require("../constants/shared")
 
 const inventorySchema = new mongoose.Schema({
     items: {

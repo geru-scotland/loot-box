@@ -20,8 +20,8 @@ const loginController = async (req, res) => {
             return res.status(409).render("login", {error: errors.auth.WRONG_CREDENTIALS});
         }
 
-        req.session.user = { id: user._id, username: user.username };
-        return res.status(200).render("dashboard");
+        req.session.user = { id: user._id, username: user.username, role: user.role };
+        return res.status(200).redirect("/dashboard");
 
     } catch (e) {
 
@@ -69,7 +69,8 @@ const registerController = async (req, res) => {
 
         req.session.user = {
             id: user._id,
-            usernme: user.username
+            usernme: user.username,
+            role: user.role
         }
 
         res.status(200).render("dashboard");

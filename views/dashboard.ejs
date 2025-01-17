@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title><%= literals.dashboard.TITLE %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-<a href="<%= routes.auth.logout %>" class="logout-button">Logout</a>
+<div class="menu">
+    <a href="<%= routes.auth.logout %>" class="button logout-button"><%= literals.dashboard.LOGOUT %></a>
+    <% if (user.isAdmin) { %>
+        <a href="<%= routes.admin.panel %>" class="button admin-button"><%= literals.dashboard.ADMIN_PANEL %></a>
+    <% } %>
+</div>
+
 <div class="container">
-    <h1 class="title">Loot Box!</h1>
+    <h1 class="title"><%= literals.dashboard.HEADER %></h1>
+    <p class="welcome"><%= literals.dashboard.WELCOME_USER.replace('{username}', user.username) %></p>
     <div class="lootbox-container">
         <div class="lootbox" id="lootbox">
             <img src="/images/lootbox2.png" alt="Lootbox" />
         </div>
-        <button id="acceptButton" class="accept-button" style="display: none;">Accept!</button>
+        <button id="acceptButton" class="accept-button" style="display: none;">
+            <%= literals.dashboard.ACCEPT_BUTTON %>
+        </button>
     </div>
 
-
     <div class="inventory-container">
-        <h2>Inventory</h2>
+        <h2><%= literals.dashboard.INVENTORY_TITLE %></h2>
         <div class="inventory-grid">
             <% for (let i = 0; i < 20; i++) { %>
                 <div class="inventory-slot"></div>
@@ -26,46 +34,38 @@
     </div>
 </div>
 </body>
-
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const lootbox = document.getElementById("lootbox");
         const acceptButton = document.getElementById("acceptButton");
 
-        // Manejo del clic en el lootbox
         lootbox.addEventListener("click", () => {
             lootbox.classList.add("clicked");
 
-            // Cuando la animación de clic termina, oculta el lootbox y muestra el botón
             lootbox.addEventListener("animationend", function handleLootboxAnimation() {
-                lootbox.style.display = "none"; // Oculta el lootbox
-                acceptButton.style.display = "flex"; // Muestra el botón
-                acceptButton.classList.add("show"); // Añade animación de aparición
-                lootbox.classList.remove("clicked"); // Limpia la clase del lootbox
-                lootbox.removeEventListener("animationend", handleLootboxAnimation); // Limpia el evento
+                lootbox.style.display = "none";
+                acceptButton.style.display = "flex";
+                acceptButton.classList.add("show");
+                lootbox.classList.remove("clicked");
+                lootbox.removeEventListener("animationend", handleLootboxAnimation);
             });
         });
 
-        // Manejo del clic en el botón "Accept!"
         acceptButton.addEventListener("click", () => {
-            acceptButton.classList.add("hide"); // Añade animación de salida
+            acceptButton.classList.add("hide");
 
-            // Cuando la animación de salida del botón termina
             acceptButton.addEventListener("animationend", function handleButtonAnimation() {
-                acceptButton.style.display = "none"; // Oculta el botón
-                lootbox.style.display = "block"; // Muestra el lootbox
-                lootbox.classList.add("show"); // Añade animación de entrada
-                acceptButton.classList.remove("hide"); // Limpia la clase del botón
-                acceptButton.removeEventListener("animationend", handleButtonAnimation); // Limpia el evento
+                acceptButton.style.display = "none";
+                lootbox.style.display = "block";
+                lootbox.classList.add("show");
+                acceptButton.classList.remove("hide");
+                acceptButton.removeEventListener("animationend", handleButtonAnimation);
 
-                // Limpia la clase "show" del lootbox después de su animación
                 setTimeout(() => {
                     lootbox.classList.remove("show");
                 }, 2000);
             });
         });
     });
-
 </script>
-
 </html>

@@ -4,7 +4,9 @@ const routes = {
         login: '/auth/login',
         logout: '/auth/logout'
     },
-    dashboard: {}
+    admin: {
+        panel: '/admin/'
+    }
 };
 
 module.exports = routes;
