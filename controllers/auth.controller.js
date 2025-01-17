@@ -16,7 +16,6 @@ const loginController = async (req, res) => {
         const passwordOk = await user.checkPassword(password);
 
         if(!passwordOk){
-
             return res.status(409).render("login", {error: errors.auth.WRONG_CREDENTIALS});
         }
 
@@ -73,7 +72,7 @@ const registerController = async (req, res) => {
             role: user.role
         }
 
-        res.status(200).render("dashboard");
+        res.status(200).redirect("dashboard");
 
     } catch(e) {
         console.error("Error al crear la cuenta:", e);
