@@ -6,7 +6,7 @@
   "type": "Alchemy - Consumable",
   "description": "Upong drinking this potion, you feel a bit dizzi...",
   "quality": "rare",
-  "icon": "Screenshot_2025-01-18_at_01.45.51-itemicon.png",
+  "icon": "wp-itemicon.png",
   "__v": 0
 },
 {
@@ -17,7 +17,7 @@
   "type": "Throwable",
   "description": "Enemies shall be frozen in time while burning.",
   "quality": "epic",
-  "icon": "Screenshot_2025-01-18_at_01.51.39-itemicon.png",
+  "icon": "fft-itemicon.png",
   "__v": 0
 },
 {
@@ -28,7 +28,7 @@
   "type": "Tool",
   "description": "Used to create contracts with magical beings.",
   "quality": "epic",
-  "icon": "Screenshot_2025-01-18_at_05.14.44-itemicon.png",
+  "icon": "mq-itemicon.png",
   "__v": 0
 },
 {
@@ -39,7 +39,7 @@
   "type": "Consumable",
   "description": "A fiery potion that temporarily increases fire resistance and attack power.",
   "quality": "rare",
-  "icon": "Screenshot_2025-01-18_at_05.15.47-itemicon.png",
+  "icon": "eoe-itemicon.png",
   "__v": 0
 },
 {
@@ -50,7 +50,7 @@
   "type": "Relic",
   "description": "A sigil of immense power that locks or unlocks ancient doors and forbidden areas.",
   "quality": "legendary",
-  "icon": "Screenshot_2025-01-18_at_05.12.23-itemicon.png",
+  "icon": "soa-itemicon.png",
   "__v": 0
 },
 {
@@ -59,9 +59,9 @@
   },
   "name": "Songbird Emblem",
   "type": "Badge",
-  "description": "A token of alliance with the Sky Guardians, granting access to aerial transportation.",
+  "description": "A token of alliance with the Sky Guardians. Grants access to aerial transportation.",
   "quality": "epic",
-  "icon": "Screenshot_2025-01-18_at_05.11.43-itemicon.png",
+  "icon": "sbe-itemicon.png",
   "__v": 0
 },
 {
@@ -72,7 +72,7 @@
   "type": "Healing Item",
   "description": "A glowing leaf that instantly restores health and cures poison.",
   "quality": "rare",
-  "icon": "Screenshot_2025-01-18_at_05.15.22-itemicon.png",
+  "icon": "lor-itemicon.png",
   "__v": 0
 },
 {
@@ -83,7 +83,7 @@
   "type": "Spell",
   "description": "An enchanted symbol that unleashes a devastating burst of fire when casted.",
   "quality": "epic",
-  "icon": "Screenshot_2025-01-18_at_05.14.16-itemicon.png",
+  "icon": "fg-itemicon.png",
   "__v": 0
 },
 {
@@ -94,7 +94,7 @@
   "type": "Resource",
   "description": "A rare crystal formed from the first morning dew, used for crafting powerful water-based spells.",
   "quality": "rare",
-  "icon": "Screenshot_2025-01-18_at_05.13.44-itemicon.png",
+  "icon": "cod-itemicon.png",
   "__v": 0
 },
 {
@@ -103,9 +103,9 @@
   },
   "name": "Codex of Whispers",
   "type": "Artifact",
-  "description": "An ancient book that reveals secrets of the forgotten world, enhancing intelligence and unlocking hidden paths.",
+  "description": "An ancient book that reveals secrets of the forgotten world. Enhances intelligence and unlocks hidden paths.",
   "quality": "legendary",
-  "icon": "Screenshot_2025-01-18_at_05.12.54-itemicon.png",
+  "icon": "cow-itemicon.png",
   "__v": 0
 },
 {
@@ -116,7 +116,7 @@
   "type": "Artifact",
   "description": "An enchanted book containing endless knowledge. When read, it grants insight into ancient secrets and boosts wisdom temporarily.",
   "quality": "epic",
-  "icon": "Screenshot_2025-01-18_at_05.58.31-itemicon.png",
+  "icon": "toe-itemicon.png",
   "__v": 0
 },
 {
@@ -127,7 +127,7 @@
   "type": "Magical Item",
   "description": "A mystical globe used by oracles to glimpse into possible futures. It emits a faint glow when a significant event is near.",
   "quality": "legendary",
-  "icon": "Screenshot_2025-01-18_at_05.58.06-itemicon.png",
+  "icon": "sos-itemicon.png",
   "__v": 0
 },
 {
@@ -138,7 +138,7 @@
   "type": "Relic",
   "description": "A fragment of a fallen star. When activated, it creates a radiant pulse that illuminates the surroundings and wards off shadows.",
   "quality": "legendary",
-  "icon": "Screenshot_2025-01-18_at_05.57.38-itemicon.png",
+  "icon": "sb-itemicon.png",
   "__v": 0
 },
 {
@@ -147,9 +147,9 @@
   },
   "name": "Spirit of the Sky",
   "type": "Summon",
-  "description": "A spectral entity that aids adventurers, granting temporary flight and enhanced perception in high altitudes.",
+  "description": "A spectral entity that aids adventurers - grants temporary flight and enhanced perception in high altitudes.",
   "quality": "epic",
-  "icon": "Screenshot_2025-01-18_at_05.56.49-itemicon.png",
+  "icon": "sos-itemicon.png",
   "__v": 0
 },
 {
@@ -158,9 +158,9 @@
   },
   "name": "Crest of the Verdant Order",
   "type": "Badge",
-  "description": "A symbol of allegiance to the druids of the Eternal Grove, granting increased affinity with nature-based spells.",
+  "description": "A symbol of allegiance to the druids of the Eternal Grove. Grants increased affinity with nature-based spells.",
   "quality": "rare",
-  "icon": "Screenshot_2025-01-18_at_05.55.05-itemicon.png",
+  "icon": "cvo-itemicon.png",
   "__v": 0
 },
 {
@@ -169,9 +169,9 @@
   },
   "name": "Flame of the Trinity",
   "type": "Ritual item",
-  "description": "A sacred artifact used in ancient ceremonies. The three flames represent balance, unity, and power, amplifying magical rituals.",
+  "description": "A sacred artifact used in ancient ceremonies. The three flames represent balance, unity, and power. Amplifies magical rituals.",
   "quality": "legendary",
-  "icon": "Screenshot_2025-01-18_at_05.54.31-itemicon.png",
+  "icon": "fott-itemicon.png",
   "__v": 0
 },
 {
@@ -180,8 +180,8 @@
   },
   "name": "Idol of the Forgotten Wizard",
   "type": "Relic",
-  "description": "A figurine representing an ancient and powerful sorcerer, long lost to time. Its presence fills the air with arcane energy, boosting magical abilities while slowly draining the user's stamina.",
+  "description": "A figurine representing an ancient and powerful sorcerer, long lost to time. Its presence fills the air with arcane energy and boosts magical abilities while slowly drains the user's stamina.",
   "quality": "legendary",
-  "icon": "Screenshot_2025-01-18_at_05.56.03-itemicon.png",
+  "icon": "iotfw-itemicon.png",
   "__v": 0
 }]
