@@ -1,0 +1,187 @@
+[{
+  "_id": {
+    "$oid": "678afa1a782c40ee88ea1d27"
+  },
+  "name": "Wild potion",
+  "type": "Alchemy - Consumable",
+  "description": "Upong drinking this potion, you feel a bit dizzi...",
+  "quality": "rare",
+  "icon": "Screenshot_2025-01-18_at_01.45.51-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678afb95782c40ee88ea1d30"
+  },
+  "name": "Frostfire tear",
+  "type": "Throwable",
+  "description": "Enemies shall be frozen in time while burning.",
+  "quality": "epic",
+  "icon": "Screenshot_2025-01-18_at_01.51.39-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b2cf173caa5f14e23dc31"
+  },
+  "name": "Moonlit Quill",
+  "type": "Tool",
+  "description": "Used to create contracts with magical beings.",
+  "quality": "epic",
+  "icon": "Screenshot_2025-01-18_at_05.14.44-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b2d3073caa5f14e23dc34"
+  },
+  "name": "Elixir of Ember",
+  "type": "Consumable",
+  "description": "A fiery potion that temporarily increases fire resistance and attack power.",
+  "quality": "rare",
+  "icon": "Screenshot_2025-01-18_at_05.15.47-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b2d4973caa5f14e23dc37"
+  },
+  "name": "Seal of the Ancients",
+  "type": "Relic",
+  "description": "A sigil of immense power that locks or unlocks ancient doors and forbidden areas.",
+  "quality": "legendary",
+  "icon": "Screenshot_2025-01-18_at_05.12.23-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b2d6373caa5f14e23dc3a"
+  },
+  "name": "Songbird Emblem",
+  "type": "Badge",
+  "description": "A token of alliance with the Sky Guardians, granting access to aerial transportation.",
+  "quality": "epic",
+  "icon": "Screenshot_2025-01-18_at_05.11.43-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b2d8373caa5f14e23dc3d"
+  },
+  "name": "Leaf of Rebirth",
+  "type": "Healing Item",
+  "description": "A glowing leaf that instantly restores health and cures poison.",
+  "quality": "rare",
+  "icon": "Screenshot_2025-01-18_at_05.15.22-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b2da873caa5f14e23dc40"
+  },
+  "name": "Flame Glyph",
+  "type": "Spell",
+  "description": "An enchanted symbol that unleashes a devastating burst of fire when casted.",
+  "quality": "epic",
+  "icon": "Screenshot_2025-01-18_at_05.14.16-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b2dec73caa5f14e23dc43"
+  },
+  "name": "Crystal of Dew",
+  "type": "Resource",
+  "description": "A rare crystal formed from the first morning dew, used for crafting powerful water-based spells.",
+  "quality": "rare",
+  "icon": "Screenshot_2025-01-18_at_05.13.44-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b2e1373caa5f14e23dc46"
+  },
+  "name": "Codex of Whispers",
+  "type": "Artifact",
+  "description": "An ancient book that reveals secrets of the forgotten world, enhancing intelligence and unlocking hidden paths.",
+  "quality": "legendary",
+  "icon": "Screenshot_2025-01-18_at_05.12.54-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b3561654fcfd85470fdf3"
+  },
+  "name": "Tome of Eternity",
+  "type": "Artifact",
+  "description": "An enchanted book containing endless knowledge. When read, it grants insight into ancient secrets and boosts wisdom temporarily.",
+  "quality": "epic",
+  "icon": "Screenshot_2025-01-18_at_05.58.31-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b357e654fcfd85470fdf6"
+  },
+  "name": "Sphere of the Seer",
+  "type": "Magical Item",
+  "description": "A mystical globe used by oracles to glimpse into possible futures. It emits a faint glow when a significant event is near.",
+  "quality": "legendary",
+  "icon": "Screenshot_2025-01-18_at_05.58.06-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b3598654fcfd85470fdf9"
+  },
+  "name": "Starshard Beacon",
+  "type": "Relic",
+  "description": "A fragment of a fallen star. When activated, it creates a radiant pulse that illuminates the surroundings and wards off shadows.",
+  "quality": "legendary",
+  "icon": "Screenshot_2025-01-18_at_05.57.38-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b35b5654fcfd85470fdfc"
+  },
+  "name": "Spirit of the Sky",
+  "type": "Summon",
+  "description": "A spectral entity that aids adventurers, granting temporary flight and enhanced perception in high altitudes.",
+  "quality": "epic",
+  "icon": "Screenshot_2025-01-18_at_05.56.49-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b35fe654fcfd85470fdff"
+  },
+  "name": "Crest of the Verdant Order",
+  "type": "Badge",
+  "description": "A symbol of allegiance to the druids of the Eternal Grove, granting increased affinity with nature-based spells.",
+  "quality": "rare",
+  "icon": "Screenshot_2025-01-18_at_05.55.05-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b361d654fcfd85470fe02"
+  },
+  "name": "Flame of the Trinity",
+  "type": "Ritual item",
+  "description": "A sacred artifact used in ancient ceremonies. The three flames represent balance, unity, and power, amplifying magical rituals.",
+  "quality": "legendary",
+  "icon": "Screenshot_2025-01-18_at_05.54.31-itemicon.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678b3697654fcfd85470fe05"
+  },
+  "name": "Idol of the Forgotten Wizard",
+  "type": "Relic",
+  "description": "A figurine representing an ancient and powerful sorcerer, long lost to time. Its presence fills the air with arcane energy, boosting magical abilities while slowly draining the user's stamina.",
+  "quality": "legendary",
+  "icon": "Screenshot_2025-01-18_at_05.56.03-itemicon.png",
+  "__v": 0
+}]
