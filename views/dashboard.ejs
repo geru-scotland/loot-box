@@ -16,31 +16,69 @@
     <h1 class="title"><%= literals.dashboard.HEADER %></h1>
     <p class="welcome"><%= literals.dashboard.WELCOME_USER.replace('{username}', user.username) %></p>
     <div class="lootbox-container">
-        <div class="lootbox" id="lootbox">
-            <img src="/images/lootbox2.png" alt="Lootbox" />
-        </div>
-        <button id="acceptButton" class="accept-button" style="display: none;">
-            <%= literals.dashboard.ACCEPT_BUTTON %>
-        </button>
+        <% if (user.inventory.items.length < 20) { %>
+            <div class="lootbox" id="lootbox">
+                <img src="/images/lootbox2.png" alt="Lootbox" />
+            </div>
+            <button id="acceptButton" class="accept-button" style="display: none;" data-name="" data-id="">
+                <img id="itemIcon" src="" alt="Item Icon" class="item-icon" />
+            </button>
+        <% } else { %>
+            <div class="inventory-full">
+                <h2 class="full-title">Inventory Full</h2>
+                <p class="full-message">You cannot open more lootboxes until you make space in your inventory.</p>
+            </div>
+        <% } %>
     </div>
+
 
     <div class="inventory-container">
         <h2><%= literals.dashboard.INVENTORY_TITLE %></h2>
         <div class="inventory-grid">
             <% for (let i = 0; i < 20; i++) { %>
-                <div class="inventory-slot"></div>
+                <div class="inventory-slot">
+                    <% if (i < user.inventory.items.length) { %>
+                        <div class="tooltip-container">
+                            <img src="/images/icons/<%= user.inventory.items[i].icon %>"
+                                 alt="Item Icon"
+                                 class="item-icon <%= user.inventory.items[i].quality %>"
+                                 data-name="<%= user.inventory.items[i].name %>"
+                                 data-type="<%= user.inventory.items[i].type %>"
+                                 data-description="<%= user.inventory.items[i].description %>" />
+                            <div class="tooltip">
+                                <h3 class="tooltip-title"><%= user.inventory.items[i].name %></h3>
+                                <p class="tooltip-type"><%= user.inventory.items[i].type %></p>
+                                <p class="tooltip-description"><%= user.inventory.items[i].description %></p>
+                            </div>
+                        </div>
+                    <% } else { %>
+                        <div class="inventory-slot empty"></div>
+                    <% } %>
+                </div>
             <% } %>
         </div>
+
     </div>
+
 </div>
 </body>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const lootbox = document.getElementById("lootbox");
         const acceptButton = document.getElementById("acceptButton");
+        const itemIcon = document.getElementById("itemIcon");
 
-        lootbox.addEventListener("click", () => {
+        function handleLootboxClick() {
             lootbox.classList.add("clicked");
+
+            fetch("/api/items/generate/rng")
+                .then((response) => response.json())
+                .then((data) => {
+                    itemIcon.src = `<%= routes.images.icons %>/${data.icon}`;
+                    acceptButton.setAttribute("data-name", data.name);
+                    acceptButton.setAttribute("data-id", data._id);
+                    acceptButton.className = `accept-button ${data.quality}`;
+                });
 
             lootbox.addEventListener("animationend", function handleLootboxAnimation() {
                 lootbox.style.display = "none";
@@ -49,23 +87,54 @@
                 lootbox.classList.remove("clicked");
                 lootbox.removeEventListener("animationend", handleLootboxAnimation);
             });
-        });
+        }
 
-        acceptButton.addEventListener("click", () => {
+        function handleAcceptButtonClick() {
+            const itemId = acceptButton.getAttribute("data-id");
+
+            if (itemId) {
+                fetch(`/api/inventory/items/${itemId}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: "",
+                })
+                    .then((response) => response.json())
+                    .then((itemData) => {
+                        console.log("Fetched item details:", itemData);
+                    })
+                    .catch((error) => {
+                        console.error("Error fetching item details:", error);
+                    });
+            }
+
             acceptButton.classList.add("hide");
 
             acceptButton.addEventListener("animationend", function handleButtonAnimation() {
                 acceptButton.style.display = "none";
+
                 lootbox.style.display = "block";
                 lootbox.classList.add("show");
+
+                lootbox.removeEventListener("click", handleLootboxClick);
+
                 acceptButton.classList.remove("hide");
                 acceptButton.removeEventListener("animationend", handleButtonAnimation);
 
                 setTimeout(() => {
                     lootbox.classList.remove("show");
                 }, 2000);
+
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2500);
             });
-        });
+        }
+
+        lootbox.addEventListener("click", handleLootboxClick);
+        acceptButton.addEventListener("click", handleAcceptButtonClick);
     });
+
 </script>
 </html>

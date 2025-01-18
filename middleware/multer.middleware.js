@@ -22,7 +22,6 @@ const storage = multer.diskStorage({
 
 const fileFilter = function(req, file, cb){
     const extension = path.extname(file.originalname).toLowerCase();
-    console.log("EXTENSION: + " + extension);
     if(!allowedExtensions.includes(extension)){
         console.log("Error uploading file: extension not allowed");
         cb(null, false);

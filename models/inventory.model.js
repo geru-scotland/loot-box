@@ -3,7 +3,7 @@ const { shared } = require("../constants/shared")
 
 const inventorySchema = new mongoose.Schema({
     items: {
-        type: [{ type: mongoose.Schema.Types.ObjectId, ref: "items"}],
+        type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Item"}],
         default: [],
         validate: {
             validator: function (items) {

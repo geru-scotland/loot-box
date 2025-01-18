@@ -18,8 +18,11 @@ const routes = {
     },
     public: {
         images: {
-            icons: 'public/images/icons'
+            icons: 'public/images/icons',
         }
+    },
+    images: {
+        icons: 'images/icons',
     }
 };
 

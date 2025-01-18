@@ -33,7 +33,7 @@ const createUserController = async (req, res) => {
 
         req.session.user = {
             id: user._id,
-            usernme: user.username,
+            username: user.username,
             role: user.role
         }
 

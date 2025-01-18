@@ -31,8 +31,14 @@ const createItemController = async (req, res) => {
     }
 };
 
-const rngItemController = () => {
+const rngItemController = async (req, res) => {
 
+    const itemList = await Item.find({}, {_id:1, name:1, quality:1, icon:1});
+
+    const randomIndex = Math.floor(Math.random() * itemList.length);
+    const selectedItem = itemList[randomIndex]
+
+    res.status(200).json(selectedItem);
 }
 
 module.exports = { rngItemController, createItemController};

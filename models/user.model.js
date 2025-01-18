@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
     },
     inventory_guid: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "inventory"
+        ref: "Inventory"
     }
 });
 
