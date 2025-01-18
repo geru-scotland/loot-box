@@ -1,10 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const { requiresAdmin } = require("../middleware/auth.middleware")
+const { requiresAdmin } = require("../middleware/auth.middleware");
+const { addItemController } = require("../controllers/admin.controller");
 
-router.get("/", requiresAdmin, (req, res) => {
-    res.render("admin/add-items");
-})
+router.get("/:rid?", requiresAdmin, addItemController);
 
 module.exports= router;

@@ -8,10 +8,13 @@
 <body>
 <div class="container">
   <h1 class="title"><%= literals.admin.HEADER %></h1>
+  <% if (feedback) { %>
+    <div class="feedback <%= feedback.type %>">
+      <p><%= feedback.message %></p>
+    </div>
+  <% } %>
   <div class="admin-form-container">
-    <iframe id="hiddenIframe" name="hiddenIframe" style="display: none;"></iframe>
-
-    <form action="<%= routes.api.items.add %>" method="POST" enctype="multipart/form-data" target="hiddenIframe">
+    <form action="<%= routes.api.items.add %>" method="POST" enctype="multipart/form-data">
       <div class="form-group">
         <label for="itemName"><%= literals.admin.ITEM_NAME_LABEL %></label>
         <input type="text" id="itemName" name="itemName" placeholder="Enter item name" required />
@@ -46,13 +49,6 @@
 </body>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-
-    const iframe = document.getElementById("hiddenIframe");
-
-    iframe.addEventListener("load", function () {
-      alert("Item created successfully");
-      window.location.href = "/";
-    });
 
     const qualitySelect = document.getElementById("itemQuality");
 

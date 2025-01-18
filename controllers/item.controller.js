@@ -8,13 +8,26 @@ const createItemController = async (req, res) => {
         const image = req.file;
         const iconName = image.filename;
 
-        // Debería de comprobar que sea único, pero como es de juguete esto,
-        // dejo items con mismo nombre.
+        const exists = await Item.findOne({name: itemName});
 
-        const item = new Item()
+        if(exists){
+            return res.status(409).redirect("/admin/success");
+        }
+
+        const item = new Item({
+            name: itemName,
+            type: itemType,
+            description: itemDescription,
+            quality: itemQuality,
+            icon: iconName
+        });
+
+        await item.save();
+
+        return res.status(201).redirect("/admin/success");
 
     } catch(e){
-        console.log(e);
+        return res.status(500).redirect("/admin/error");
     }
 };
 

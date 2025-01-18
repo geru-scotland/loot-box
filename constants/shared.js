@@ -19,7 +19,12 @@ const quality = {
     LEGENDARY: "legendary",
 }
 
+const resultIds = {
+    R_ERROR: "error",
+    R_OK: "success",
+}
+
 const allowedExtensions = [extensions.PNG, extensions.JPEG];
 const allowedQualities = [quality.COMMON, quality.RARE, quality.EPIC, quality.LEGENDARY];
 
-module.exports = { shared, roles, extensions, allowedExtensions, allowedQualities }
+module.exports = { shared, roles, extensions, allowedExtensions, allowedQualities, resultIds}

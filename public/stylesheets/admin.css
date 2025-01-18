@@ -152,3 +152,23 @@ input[type="file"]::file-selector-button:hover {
 input[type="file"]:hover {
     box-shadow: inset 0 0 10px #00ff00;
 }
+
+.feedback {
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.feedback.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.feedback.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
