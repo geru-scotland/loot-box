@@ -12,4 +12,14 @@ const extensions = {
     JPEG: ".jpeg"
 }
 
-module.exports = { shared, roles, extensions }
+const quality = {
+    COMMON: "common",
+    RARE: "rare",
+    EPIC: "epic",
+    LEGENDARY: "legendary",
+}
+
+const allowedExtensions = [extensions.PNG, extensions.JPEG];
+const allowedQualities = [quality.COMMON, quality.RARE, quality.EPIC, quality.LEGENDARY];
+
+module.exports = { shared, roles, extensions, allowedExtensions, allowedQualities }

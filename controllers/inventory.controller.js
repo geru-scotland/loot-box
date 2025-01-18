@@ -1,5 +1,6 @@
+const Item = require("../models/item.model");
 
-const addItemInventoryController = () => {
+const addItemInventoryController = (req, res) => {
 
 }
 

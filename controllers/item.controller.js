@@ -1,26 +1,25 @@
+const Item = require("../models/item.model");
 
-const rngItemController = () => {
-
-}
-
-const createItemController = (req, res) => {
+const createItemController = async (req, res) => {
 
     const { itemName, itemType, itemDescription, itemQuality } = req.body;
 
-    try{
+    try {
         const image = req.file;
         const iconName = image.filename;
-        console.log("IconName:", iconName);
-        console.log("Item Name:", itemName);
-        console.log("Item Type:", itemType);
-        console.log("Item Description:", itemDescription);
-        console.log("Item Quality:", itemQuality);
 
+        // Debería de comprobar que sea único, pero como es de juguete esto,
+        // dejo items con mismo nombre.
 
-        res.send(`Item received: ${itemName}, ${itemType}, ${itemDescription}, ${itemQuality}`);
+        const item = new Item()
+
     } catch(e){
         console.log(e);
     }
 };
+
+const rngItemController = () => {
+
+}
 
 module.exports = { rngItemController, createItemController};
