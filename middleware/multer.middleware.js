@@ -4,9 +4,8 @@ const path = require("path");
 const routes = require("../routes/routes");
 const Item = require("../models/item.model");
 
-const { extensions } = require("../constants/shared");
+const { allowedExtensions } = require("../constants/shared");
 
-const allowedExtensions = [extensions.PNG, extensions.JPEG];
 // Config
 
 // Paso objeto js con funciones
