@@ -3,14 +3,22 @@
 <head>
     <title><%= literals.dashboard.TITLE %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <script src="/js/main.js"></script>
+    <script type="module" src="/js/main.js"></script>
 </head>
 <body>
+
 <div class="menu">
     <a href="<%= routes.auth.logout %>" class="button logout-button"><%= literals.dashboard.LOGOUT %></a>
     <% if (user.isAdmin) { %>
         <a href="<%= routes.admin.panel %>" class="button admin-button"><%= literals.dashboard.ADMIN_PANEL %></a>
     <% } %>
+</div>
+
+<div class="reset-console">
+    <div class="console-screen">
+        <span class="screen-text">RESET?</span>
+    </div>
+    <button class="reset-button">RESET</button>
 </div>
 
 <div class="container">
@@ -37,7 +45,7 @@
         <h2><%= literals.dashboard.INVENTORY_TITLE %></h2>
         <div class="inventory-grid">
             <% for (let i = 0; i < 20; i++) { %>
-                <div class="inventory-slot">
+                <div class="inventory-slot" data-index="<%= i %>">
                     <% if (i < user.inventory.items.length) { %>
                         <div class="tooltip-container">
                             <img src="/images/icons/<%= user.inventory.items[i].icon %>"

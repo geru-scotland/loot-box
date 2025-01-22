@@ -1,72 +1,37 @@
+import LootboxManager from "./managers/LootboxManager.js";
+
 document.addEventListener("DOMContentLoaded", () => {
+
     const lootbox = document.getElementById("lootbox");
-    const acceptButton = document.getElementById("acceptButton");
-    const itemIcon = document.getElementById("itemIcon");
 
-    function handleLootboxClick() {
-        lootbox.classList.add("clicked");
-        console.log("click")
-        fetch("/api/items/generate/rng")
-            .then((response) => response.json())
-            .then((data) => {
-                itemIcon.src = data.icon;
-                acceptButton.setAttribute("data-name", data.name);
-                acceptButton.setAttribute("data-id", data._id);
-                acceptButton.className = `accept-button ${data.quality}`;
-            });
+    if(lootbox)
+        new LootboxManager();
 
-        lootbox.addEventListener("animationend", function handleLootboxAnimation() {
-            lootbox.style.display = "none";
-            acceptButton.style.display = "flex";
-            acceptButton.classList.add("show");
-            lootbox.classList.remove("clicked");
-            lootbox.removeEventListener("animationend", handleLootboxAnimation);
-        });
-    }
+    document.querySelector('.reset-button').addEventListener('click', () => {
 
-    function handleAcceptButtonClick() {
-        const itemId = acceptButton.getAttribute("data-id");
+        fetch("/api/inventory/reset", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => {
+                console.log("RESET RECEIVING 1")
+                if(!response.ok)
+                    throw new Error(`HTTP Error: ${response.status}`);
 
-        if (itemId) {
-            fetch(`/api/inventory/items/${itemId}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: "",
+                return response.json();
             })
-                .then((response) => response.json())
-                .then((itemData) => {
-                    console.log("Fetched item details:", itemData);
-                })
-                .catch((error) => {
-                    console.error("Error fetching item details:", error);
+            .then(() => {
+                console.log("RESET RECEIVING 2")
+                const inventorySlots = document.querySelectorAll('.inventory-slot');
+                inventorySlots.forEach(slot => {
+                    slot.innerHTML = '';
+                    slot.classList.add('reset-animation');
                 });
-        }
-
-        acceptButton.classList.add("hide");
-
-        acceptButton.addEventListener("animationend", function handleButtonAnimation() {
-            acceptButton.style.display = "none";
-
-            lootbox.style.display = "block";
-            lootbox.classList.add("show");
-
-            lootbox.removeEventListener("click", handleLootboxClick);
-
-            acceptButton.classList.remove("hide");
-            acceptButton.removeEventListener("animationend", handleButtonAnimation);
-
-            setTimeout(() => {
-                lootbox.classList.remove("show");
-            }, 2000);
-
-            setTimeout(() => {
-                window.location.reload();
-            }, 2500);
+            }).catch(error => {
+            console.error("Error handling:", error);
         });
-    }
+    });
 
-    lootbox.addEventListener("click", handleLootboxClick);
-    acceptButton.addEventListener("click", handleAcceptButtonClick);
 });

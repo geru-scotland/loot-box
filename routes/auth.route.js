@@ -5,8 +5,6 @@ const { loginController, logoutController} = require("../controllers/auth.contro
 const { createUserController } = require("../controllers/user.controller");
 const { requiresAuth, strictNoAuth } = require("../middleware/auth.middleware");
 
-// TODO: Falta middleware check para las rutas
-
 router.get("/login", strictNoAuth, (req, res) => {
     return res.status(200).render("login");
 });
