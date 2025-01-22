@@ -16,19 +16,22 @@ document.addEventListener("DOMContentLoaded", () => {
             },
         })
             .then((response) => {
-                console.log("RESET RECEIVING 1")
+
                 if(!response.ok)
                     throw new Error(`HTTP Error: ${response.status}`);
 
                 return response.json();
             })
             .then(() => {
-                console.log("RESET RECEIVING 2")
+
                 const inventorySlots = document.querySelectorAll('.inventory-slot');
                 inventorySlots.forEach(slot => {
                     slot.innerHTML = '';
                     slot.classList.add('reset-animation');
                 });
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
             }).catch(error => {
             console.error("Error handling:", error);
         });
