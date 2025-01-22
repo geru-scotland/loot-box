@@ -11,11 +11,17 @@ const createUserController = async (req, res) => {
         return res.status(400).render("error", { error: { status: 400, message: "Missing fields" } });
     }
 
+    if (username.length < 1 || username.length > 12 || /\s/.test(username)) {
+        return res.status(400).render("register", {
+            error: errors.auth.USERNAME_TOO_LONG
+        });
+    }
+
     try{
         const exists = await User.findOne({username: username.toLowerCase()});
 
         if(exists){
-            return res.status(409).render("register", {error: errors.auth.USERNAME_ALREADY_EXISTS})
+            return res.status(409).render("register", { error: errors.auth.USERNAME_ALREADY_EXISTS })
         }
 
         // TODO: crear nuevo inventario y obtener su _id primero
