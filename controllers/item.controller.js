@@ -1,4 +1,5 @@
 const Item = require("../models/item.model");
+const routes = require("../routes/routes")
 
 const createItemController = async (req, res) => {
 
@@ -36,8 +37,9 @@ const rngItemController = async (req, res) => {
     const itemList = await Item.find({}, {_id:1, name:1, quality:1, icon:1});
 
     const randomIndex = Math.floor(Math.random() * itemList.length);
-    const selectedItem = itemList[randomIndex]
+    let selectedItem = itemList[randomIndex]
 
+    selectedItem.icon = routes.images.icons + "/" + selectedItem.icon;
     res.status(200).json(selectedItem);
 }
 
