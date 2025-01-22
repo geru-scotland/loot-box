@@ -149,7 +149,7 @@
   "type": "Summon",
   "description": "A spectral entity that aids adventurers - grants temporary flight and enhanced perception in high altitudes.",
   "quality": "epic",
-  "icon": "sos-itemicon.png",
+  "icon": "sots-itemicon.png",
   "__v": 0
 },
 {
