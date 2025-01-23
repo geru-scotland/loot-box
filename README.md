@@ -5,7 +5,7 @@
 </p>
 
 This is just a `mini toy project` inspired by **retro video games** and developed to practice concepts from the **Web Systems course** (Computer Science degree, UPV/EHU), in preparation for the exam.
-. It's a simple lootbox system where you can open a chest, reveal random items, and add them to their inventory. Because I am a bit of a nerd, I've added some **lore** as a minor touch for each item's background, in a form of `tooltips`:
+ It's a simple lootbox system where you can open a chest, reveal random items, and add them to their inventory. Because I am a bit of a nerd, I've added some **lore** as a minor touch for each item's background, in a form of `tooltips`:
 
 <p align="center">
   <img src="images/tooltips.png" alt="Lootbox main image" width="400">
