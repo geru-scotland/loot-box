@@ -37,6 +37,7 @@ I've used a  small combination of tools and libraries:
 
 - Web app: [Loot-box](https://loot-box.up.railway.app/) (it uses free cloud hosting so it might be a bit slow)
 - `Docker` image: [Docker Hub](https://hub.docker.com/repository/docker/basajaun0/loot-box/general)
+**Note:** You can just use fake data when regestering, the **e-mail doesn't need to exist at all**.
 
 ---
 
